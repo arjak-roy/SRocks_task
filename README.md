@@ -1,4 +1,5 @@
 Folder Structure:
+---
 ```
 └── 📁lib
     └── 📁Data
@@ -31,3 +32,9 @@ Folder Structure:
     └── main.dart
     └── tree.txt
 ```
+---
+Architecture used: MVVM
+---
+
+
+
