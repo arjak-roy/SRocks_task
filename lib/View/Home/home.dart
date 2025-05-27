@@ -98,7 +98,7 @@ class _HomeState extends State<Home> {
         child: Column(
           children: [
             Expanded(
-              flex: 2,
+              flex: 3,
               child: Stack(
                 children: [
                   Container(
@@ -218,7 +218,7 @@ class _HomeState extends State<Home> {
                                   },
                                   child: Container(
                                     height: 100,
-                                    padding: EdgeInsets.all(10),
+                                    // width: MediaQuery.of(context).size.width*0.9,
                                     decoration: BoxDecoration(
                                             border: Border.all(width: 2.0,color: Color.fromARGB(255, 44, 45, 49)),
                                             image: DecorationImage(alignment: Alignment.center,image: AssetImage(assets.assetPath), fit: BoxFit.cover, filterQuality: FilterQuality.high, colorFilter: ColorFilter.mode(const Color.fromARGB(154, 60, 60, 60), BlendMode.darken,),opacity: 0.3),
@@ -228,7 +228,6 @@ class _HomeState extends State<Home> {
 
                                     ),
                                     margin: EdgeInsets.all(10),
-                                    width: MediaQuery.of(context).size.width,
                                   
                                     child: Row(
                                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -250,29 +249,33 @@ class _HomeState extends State<Home> {
                                             SizedBox(
                                               width: 10,
                                             ),
-                                            Column(
-                                              mainAxisAlignment: MainAxisAlignment.center,
-                                              crossAxisAlignment: CrossAxisAlignment.start,
-                                              children: [
-                                                Text(
-                                                  value.servicesMain.data!.services[index].serviceName.toString(),
-                                                  style: GoogleFonts.syne(color: const Color.fromARGB(255, 255, 255, 255), fontSize: 15, fontWeight: FontWeight.w700),
-                                                ),
-                                                Text(
-                                                  value.servicesMain.data!.services[index].serviceDescription.toString(),
-                                                  style: GoogleFonts.syne(color: const Color.fromARGB(255, 255, 255, 255), fontSize: 13, fontWeight: FontWeight.w400),
-                                                ),
-                                                                          
-                                            ]),                                                                      
+                                            Container(
+                                              width: MediaQuery.of(context).size.width*0.5,
+                                              child: Column(
+                                                mainAxisAlignment: MainAxisAlignment.center,
+                                                crossAxisAlignment: CrossAxisAlignment.start,
+                                                children: [
+                                                  Text(
+                                                    value.servicesMain.data!.services[index].serviceName.toString(),
+                                                    style: GoogleFonts.syne(color: const Color.fromARGB(255, 255, 255, 255), fontSize: 15, fontWeight: FontWeight.w700),
+                                                  ),
+                                                  Text(
+                                                    overflow: TextOverflow.ellipsis,
+                                                    value.servicesMain.data!.services[index].serviceDescription.toString(),
+                                                    style: GoogleFonts.syne(color: const Color.fromARGB(255, 255, 255, 255), fontSize: 13, fontWeight: FontWeight.w400),
+                                                  ),
+                                                                            
+                                              ]),
+                                            ),                                                                      
                                           ],
                                         ),
-                                        Container(
-                                          child: Icon(
+                                        
+                                           Icon(
                                             size: 50,
                                             Icons.arrow_right,
                                             color: const Color.fromARGB(255, 255, 255, 255),
                                           ),
-                                        ),
+                                        
 
                                       ],
                                     ),
