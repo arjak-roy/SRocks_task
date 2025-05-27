@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:s_rocks/Data/Remote/Response/status.dart';
 import 'package:s_rocks/Utils/Widgets/assetsParser.dart';
+import 'package:s_rocks/Utils/Widgets/halfCircle.dart';
 import 'package:s_rocks/View%20Model/Home/homeVM.dart';
 import 'package:s_rocks/View%20Model/Home/servicesVM.dart';
 import 'package:provider/provider.dart';
@@ -296,8 +297,13 @@ class _HomeState extends State<Home> {
        Consumer<Homevm>(
           builder: (BuildContext context, value, child) {
           return
-       Container(
+      Container(
+      padding: EdgeInsets.only(left: 10, right: 10,bottom: 10),
       decoration: const BoxDecoration(
+        borderRadius: BorderRadius.only(
+          topLeft: Radius.circular(10),
+          topRight: Radius.circular(10),
+        ),
           border: Border(
             top: BorderSide(
               color: Color(0xffAEADB2),
@@ -305,24 +311,158 @@ class _HomeState extends State<Home> {
             ),
           ),
         ),
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            Row(
+              children: [
+                Expanded(
+                  child: Column(
+                    mainAxisSize: MainAxisSize.min,
+                    children: [
+AnimatedContainer(
+  duration: Duration(milliseconds: 300),
+  height: 10,
+  width: 20,
+    decoration:  BoxDecoration(
+      color: (value.currentIndex == 0) ? Color.fromARGB(255, 255, 255, 255) : Colors.transparent,
+      borderRadius: BorderRadius.only(
+        bottomLeft: Radius.circular(100),
+        bottomRight: Radius.circular(100),
+      ))),              
+      const SizedBox(
+        height: 10,
+      ),
+              InkWell(
+                        splashColor: Colors.transparent,
+                        onTap: () {
+                          Provider.of<Homevm>(context, listen: false).setCurrentIndex(0);
+                        },
+                        child: ImageIcon(
+                          color: Colors.white,
+                          const AssetImage("assets/SRocks.png"),
+                        ),
+                      ),
+                        Text(
+                          'Home',
+                          style: TextStyle(color: Colors.white),
+                        )
+                    ],
+                  )
+                   ),
+                Expanded(
+                  child: Column(
+                    mainAxisSize: MainAxisSize.min,
+                    children: [
+AnimatedContainer(
+  duration: Duration(milliseconds: 300),
+  height: 10,
+  width: 20,
+    decoration:  BoxDecoration(
+      color: (value.currentIndex == 1) ? Color.fromARGB(255, 255, 255, 255) : Colors.transparent,
+      borderRadius: BorderRadius.only(
+        bottomLeft: Radius.circular(100),
+        bottomRight: Radius.circular(100),
+      ))),              
+      const SizedBox(
+        height: 10,
+      ),
+                      InkWell(
+                        splashColor: Colors.transparent,
+                        onTap: () {
+                          Provider.of<Homevm>(context, listen: false).setCurrentIndex(1);
 
-        child: BottomNavigationBar(
-            onTap: (value) {
-              Provider.of<Homevm>(context, listen: false).setCurrentIndex(value);
-            },
-            elevation: 10,
-            type: BottomNavigationBarType.fixed,
-            backgroundColor: Colors.black,
-            unselectedItemColor: Colors.grey,
-            selectedItemColor: Colors.white,
-            currentIndex: value.currentIndex,
-            items: const <BottomNavigationBarItem>[
-              BottomNavigationBarItem(icon: Icon(Icons.home), label: 'Home'),
-              BottomNavigationBarItem(icon: Icon(Icons.business), label: 'News'),
-              BottomNavigationBarItem(icon: Icon(Icons.music_note), label: 'Track Box'),
-              BottomNavigationBarItem(icon: Icon(Icons.settings), label: 'Projects'),
-            ],
-          ));
+                        },
+                        child: ImageIcon(
+                          color: Colors.white,
+                          const AssetImage("assets/news.png"),
+                        ),
+                      ),
+                        Text(
+                          'News',
+                          style: TextStyle(color: Colors.white),
+                        )
+                    ],
+                  )
+                   ),
+                Expanded(
+                  child: Column(
+                    mainAxisSize: MainAxisSize.min,
+                    children: [
+AnimatedContainer(
+  duration: Duration(milliseconds: 300),
+  height: 10,
+  width: 20,
+    decoration:  BoxDecoration(
+      color: (value.currentIndex == 2) ? Color.fromARGB(255, 255, 255, 255) : Colors.transparent,
+      borderRadius: BorderRadius.only(
+        bottomLeft: Radius.circular(100),
+        bottomRight: Radius.circular(100),
+      ))),              
+      const SizedBox(
+        height: 10,
+      ),
+                      InkWell(
+                        splashColor: Colors.transparent,
+                        onTap: () {
+                          Provider.of<Homevm>(context, listen: false).setCurrentIndex(2);
+
+                        },
+                        child: ImageIcon(
+                          color: Colors.white,
+                          const AssetImage("assets/music.png"),
+                        ),
+                      ),
+                        Text(
+                          'TrackBox',
+                          style: TextStyle(color: Colors.white),
+                        )
+                    ],
+                  )
+                   ),
+                Expanded(
+                  child: Column(
+                    mainAxisSize: MainAxisSize.min,
+                    children: [
+AnimatedContainer(
+  duration: Duration(milliseconds: 300),
+  height: 10,
+  width: 20,
+    decoration:  BoxDecoration(
+      color: (value.currentIndex == 3) ? Color.fromARGB(255, 255, 255, 255) : Colors.transparent,
+      borderRadius: BorderRadius.only(
+        bottomLeft: Radius.circular(100),
+        bottomRight: Radius.circular(100),
+      ))),              
+      const SizedBox(
+        height: 10,
+      ),
+                      InkWell(
+                        
+                        splashColor: Colors.transparent,
+                        onTap: () {
+                          Provider.of<Homevm>(context, listen: false).setCurrentIndex(3);
+
+                        },
+                        child: ImageIcon(
+                          color: Colors.white,
+                          const AssetImage("assets/projects.png"),
+                        ),
+                      ),
+                        Text(
+                          'Projects',
+                          style: TextStyle(color: Colors.white),
+                        )
+                    ],
+                  )
+                   ),
+      ],
+            )
+          ],
+        ),
+
+        );
+
           }
         ),
       );
